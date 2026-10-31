@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>thinktank-mcp demo chat</title>
+    <link rel="stylesheet" href="console.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="shell__header">
+        <h1 class="shell__title">thinktank-mcp</h1>
+        <div class="shell__status">
+          <span id="status-dot" class="status-dot" aria-hidden="true"></span>
+          <span id="status-text">No backend configured</span>
+        </div>
+      </header>
+
+      <div id="backend-banner" class="backend-banner" hidden>
+        <p>
+          No backend configured. Add <code>?server=https://your-worker.example.workers.dev</code>
+          to the URL once, and it will be remembered for this browser.
+        </p>
+      </div>
+
+      <section id="messages" class="messages" aria-live="polite"></section>
+
+      <form id="ask-form" class="ask-form">
+        <textarea
+          id="question-input"
+          class="ask-form__input"
+          placeholder="Ask a question about this instance's published content..."
+          rows="2"
+        ></textarea>
+        <button type="submit" id="submit-button" class="ask-form__submit">Ask</button>
+      </form>
+    </main>
+
+    <script src="console.js"></script>
+  </body>
+</html>

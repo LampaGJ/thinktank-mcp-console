@@ -1,0 +1,174 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: #e2e2e2;
+  --accent: #2b6cb0;
+  --accent-fg: #ffffff;
+  --bubble-user: #eef4fb;
+  --bubble-agent: #f4f4f4;
+  --error: #b91c1c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171a;
+    --fg: #ececec;
+    --muted: #9a9a9a;
+    --border: #2d2f33;
+    --accent: #5b9bd5;
+    --accent-fg: #0b0e13;
+    --bubble-user: #1f2733;
+    --bubble-agent: #1e2024;
+    --error: #f87171;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 100vh;
+}
+
+.shell__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+.shell__title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.shell__status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  display: inline-block;
+}
+
+.status-dot.is-ready {
+  background: #22c55e;
+}
+
+.status-dot.is-error {
+  background: var(--error);
+}
+
+.backend-banner {
+  background: var(--bubble-agent);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.backend-banner code {
+  background: var(--bubble-user);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 85%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  line-height: 1.45;
+  font-size: 15px;
+}
+
+.message--user {
+  align-self: flex-end;
+  background: var(--bubble-user);
+}
+
+.message--agent {
+  align-self: flex-start;
+  background: var(--bubble-agent);
+}
+
+.message--error {
+  align-self: flex-start;
+  background: var(--bubble-agent);
+  color: var(--error);
+}
+
+.message--pending {
+  color: var(--muted);
+}
+
+.message__meta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.ask-form {
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.ask-form__input {
+  flex: 1;
+  resize: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 15px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.ask-form__submit {
+  border: none;
+  border-radius: 8px;
+  padding: 0 18px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.ask-form__submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
